@@ -1465,7 +1465,16 @@ If the credentials are invalid, the endpoint will return 404 Not Found status
 
           <h1 id="errors">Errors</h1>
 
-<p>Errors when manipulating resources are returned as <a href="http://jsonapi.org/format/#error-objects">JSON API error objects</a>. For example, when trying to update a certificate with a blank title, the following response would be returned:</p>
+<p>Errors when manipulating resources are returned as <a href="http://jsonapi.org/format/#error-objects">JSON API error objects</a>. A JSON API error object contains the following fields:</p>
+
+<ul>
+<li><code class="prettyprint">detail</code>: a human-readable explanation specific to this occurrence of the problem. </li>
+<li><code class="prettyprint">source</code>: an object containing references to the source of the error, including the following members:
+
+<ul>
+<li><code class="prettyprint">pointer</code>: a JSON Pointer to the associated entity in the request document [e.g. <code class="prettyprint">&quot;/data&quot;</code> for a primary data object, or <code class="prettyprint">&quot;/data/attributes/title&quot;</code> for a specific attribute].</li>
+</ul></li>
+</ul>
 
 <blockquote>
 <p>Response with JSON API error object:</p>
